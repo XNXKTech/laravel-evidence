@@ -9,7 +9,7 @@ use Tests\TestHelpers;
 
 class TempTest extends TestCase
 {
-    public function testCreatePersonalAccount()
+    public function testCreateBusiness()
     {
         $response = app(TestHelpers::class)
             ->evidence()
