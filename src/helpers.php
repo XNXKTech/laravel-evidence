@@ -27,24 +27,11 @@ if (!function_exists('getContentMd5')) {
 
 if (!function_exists('getSignature')) {
     function getSignature(
-        string $httpMethod,
-        string $accept,
-        string $contentType,
-        string $contentMd5,
-        string $date,
-        string $headers,
-        string $url,
-        string $secret
-    ): string {
-        $stringToSign = $httpMethod . "\n" . $accept . "\n" . $contentMd5 . "\n" . $contentType . "\n" . $date . "\n" . $headers;
-        if ($headers !== '') {
-            $stringToSign .= "\n" . $url;
-        } else {
-            $stringToSign .= $url;
-        }
-        $signature = hash_hmac('sha256', utf8_encode($stringToSign), utf8_encode($secret), true);
-
-        return base64_encode($signature);
+        string $message,
+        string $projectSecret
+    ): bool|string
+    {
+        return hash_hmac('sha256', $message, $projectSecret, FALSE);
     }
 }
 

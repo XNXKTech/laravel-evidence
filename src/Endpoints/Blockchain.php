@@ -10,9 +10,9 @@ use XNXK\LaravelEvidence\Traits\BodyAccessorTrait;
 class Blockchain implements API
 {
     use BodyAccessorTrait;
-
-    public const ANT_PUSH_INFO_API = '/v1/blockchain/antPushInfo';                      // 查询区块链上链信息
-    public const APPLY_NOTARY_REPORT_API = '/v1/blockchain/applyNotaryReport';          // 申请区块链互联网公证处报告
+    
+    public const ANT_PUSH_INFO_API = '/evi-service/evidence/v1/blockchain/antPushInfo';                      // 查询区块链上链信息
+    public const APPLY_NOTARY_REPORT_API = '/evi-service/evidence/v1/blockchain/applyNotaryReport';          // 申请区块链互联网公证处报告
 
     private Adapter $adapter;
 

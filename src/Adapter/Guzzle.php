@@ -20,7 +20,7 @@ class Guzzle implements Adapter
     public function __construct(Auth $auth, ?string $baseURI = null)
     {
         if ($baseURI === null) {
-            $baseURI = 'https://smlcunzheng.tsign.cn:9443/evi-service/evidence';
+            $baseURI = 'https://smlcunzheng.tsign.cn:9443';
         }
 
         $this->auth = $auth;
