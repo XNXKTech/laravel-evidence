@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace XNXK\LaravelEsign\Endpoints;
+namespace XNXK\LaravelEvidence\Endpoints;
 
 use XNXK\LaravelEvidence\Adapter\Adapter;
 use XNXK\LaravelEvidence\Traits\BodyAccessorTrait;

@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace XNXK\LaravelEvidence;
 
 use Illuminate\Support\Traits\Macroable;
-use XNXK\LaravelEsign\Endpoints\Blockchain;
-use XNXK\LaravelEsign\Endpoints\Report;
-use XNXK\LaravelEsign\Endpoints\Scene;
-use XNXK\LaravelEsign\Endpoints\Temp;
+use XNXK\LaravelEvidence\Endpoints\Blockchain;
+use XNXK\LaravelEvidence\Endpoints\Report;
+use XNXK\LaravelEvidence\Endpoints\Scene;
+use XNXK\LaravelEvidence\Endpoints\Temp;
 use XNXK\LaravelEvidence\Adapter\Guzzle as Adapter;
 use XNXK\LaravelEvidence\Auth\Token;
 
