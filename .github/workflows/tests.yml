@@ -85,5 +85,9 @@ jobs:
           composer dump-autoload
 
       - name: Run Testsuite
-        run: vendor/bin/pest tests/ --coverage-text --colors=always --coverage-html=coverage
-        
+        run: vendor/bin/pest tests/ --coverage-text --colors=always --coverage-html=coverage --coverage-clover coverage.xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
