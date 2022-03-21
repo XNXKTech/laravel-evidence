@@ -24,6 +24,31 @@ generate config file
 $ php artisan vendor:publish --provider="XNXK\LaravelEvidence\ServiceProvider"
 ```
 
+## Usage
+
+The package will auto use environment variables, Put them in your .env as the following, obviously and respectively.
+
+```env
+EVIDENCE_APPID=
+EVIDENCE_SECRET=
+EVIDENCE_SERVER=
+ESIGN_SERVER=
+```
+
+Lastly, you can using Evidence class in controller use namespace top of that file
+
+```php
+use XNXK\LaravelEvidence\Evidence;
+
+$data = (new Evidence)->temp()->createBusiness();
+```
+
+or if you want a simple, you can use evidence function:
+
+```php
+evidence()->temp()->createBusiness();
+```
+
 ## License
 
 The code in this repository, unless otherwise noted, is under the terms of both the [Anti 996](https://github.com/996icu/996.ICU/blob/master/LICENSE) License and the [Apache License (Version 2.0)]().
