@@ -1,0 +1,11 @@
+name: insights
+
+on: push
+
+jobs:
+  phpinsights:
+    name: PHP Insights
+    uses: XNXKTech/workflows/.github/workflows/php-insights.yml@main
+    with:
+      versions: "[\"8.0\"]"
+      stability: "[\"prefer-stable\"]"

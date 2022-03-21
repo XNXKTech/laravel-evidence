@@ -1,0 +1,13 @@
+name: Format
+
+on:
+  schedule:
+    - cron: '0 9 * * *' # everyday at 9am UTC
+  workflow_dispatch:
+
+jobs:
+  php-cs-fixer:
+    name: PHP Code Style
+    uses: XNXKTech/workflows/.github/workflows/php-format.yml@main
+    secrets:
+      CI_PAT: ${{ secrets.CI_PAT }}
