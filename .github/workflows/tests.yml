@@ -81,8 +81,6 @@ jobs:
           cp .env.testing .env
           sed -i 's/EVIDENCE_APPID=/EVIDENCE_APPID=${{secrets.EVIDENCE_APPID}}/g' .env
           sed -i 's/EVIDENCE_SECRET=/EVIDENCE_SECRET=${{secrets.EVIDENCE_SECRET}}/g' .env
-          sed -i 's/EVIDENCE_SERVER=/EVIDENCE_SERVER=${{secrets.EVIDENCE_SERVER}}/g' .env
-          sed -i 's/ESIGN_SERVER=/ESIGN_SERVER=${{secrets.ESIGN_SERVER}}/g' .env
           cat .env
           composer dump-autoload
 
