@@ -11,13 +11,13 @@ class Scene implements API
 {
     use BodyAccessorTrait;
 
-    public const VOUCHER_API = '/v1/sp/scene/voucher';                         // 创建证据链
-    public const ORIGINAL_STANDARD_API = '/v1/sp/segment/original-std/url';    // 创建原文存证（基础版）证据点
-    public const ORIGINAL_ADVANCED_API = '/v1/sp/segment/original-adv/url';    // 创建原文存证（高级版）证据点
-    public const ORIGINAL_DIGEST_API = '/v1/sp/segment/abstract/url';          // 创建摘要存证证据点
-    public const VOUCHER_APPEND_API = '/v1/sp/scene/append';                   // 追加证据点
-    public const RELATE_API = '/v1/sp/scene/relate';                           // 数据存证编号关联到指定用户
-    public const CERTIFICATE_INFO_URL_API = '/v1/sp/scene/getUrl';             // 获取用于查看存证证明的跳转URL
+    public const VOUCHER_API = '/evi-service/evidence/v1/sp/scene/voucher';                         // 创建证据链
+    public const ORIGINAL_STANDARD_API = '/evi-service/evidence/v1/sp/segment/original-std/url';    // 创建原文存证（基础版）证据点
+    public const ORIGINAL_ADVANCED_API = '/evi-service/evidence/v1/sp/segment/original-adv/url';    // 创建原文存证（高级版）证据点
+    public const ORIGINAL_DIGEST_API = '/evi-service/evidence/v1/sp/segment/abstract/url';          // 创建摘要存证证据点
+    public const VOUCHER_APPEND_API = '/evi-service/evidence/v1/sp/scene/append';                   // 追加证据点
+    public const RELATE_API = '/evi-service/evidence/v1/sp/scene/relate';                           // 数据存证编号关联到指定用户
+    public const CERTIFICATE_INFO_URL_API = '/evi-service/evidence/v1/sp/scene/getUrl';             // 获取用于查看存证证明的跳转URL
 
     private Adapter $adapter;
 

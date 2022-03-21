@@ -11,10 +11,10 @@ class Temp implements API
 {
     use BodyAccessorTrait;
 
-    public const BUS_ADD_API = '/v1/sp/temp/bus/add';                          // 定义所属行业类型
-    public const SCENE_ADD_API = '/v1/sp/temp/scene/add';                      // 定义业务凭证（名称）
-    public const SEG_ADD_API = '/v1/sp/temp/seg/add';                          // 定义业务凭证中某一证据点名称
-    public const SEG_PROP_ADD_API = '/v1/sp/temp/seg-prop/add';                 // 定义业务凭证中某一证据点的字段属性
+    public const BUS_ADD_API = '/evi-service/evidence/v1/sp/temp/bus/add';                          // 定义所属行业类型
+    public const SCENE_ADD_API = '/evi-service/evidence/v1/sp/temp/scene/add';                      // 定义业务凭证（名称）
+    public const SEG_ADD_API = '/evi-service/evidence/v1/sp/temp/seg/add';                          // 定义业务凭证中某一证据点名称
+    public const SEG_PROP_ADD_API = '/evi-service/evidence/v1/sp/temp/seg-prop/add';                 // 定义业务凭证中某一证据点的字段属性
 
     private Adapter $adapter;
 
