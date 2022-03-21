@@ -25,7 +25,7 @@ class Temp implements API
 
     /**
      * 定义所属行业类型
-     * 新增所属行业类型记录
+     * 新增所属行业类型记录.
      * @link https://open.esign.cn/doc/detail?namespace=opendoc%2Fevidence&id=opendoc%2Fevidence%2Fcya1ge
      * @param array $name 行业名称列表
      * @return void
@@ -38,7 +38,7 @@ class Temp implements API
 
         $response = $this->adapter->post(self::BUS_ADD_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -60,7 +60,7 @@ class Temp implements API
 
         $response = $this->adapter->post(self::SCENE_ADD_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -82,7 +82,7 @@ class Temp implements API
 
         $response = $this->adapter->post(self::SEG_ADD_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -104,7 +104,7 @@ class Temp implements API
 
         $response = $this->adapter->post(self::SEG_PROP_ADD_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }

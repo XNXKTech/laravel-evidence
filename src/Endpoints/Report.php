@@ -31,12 +31,12 @@ class Report implements API
     public function query(string $reportId)
     {
         $params = [
-            'reportId' => $reportId
+            'reportId' => $reportId,
         ];
 
         $response = $this->adapter->post(self::ISSUE_REPORT_APPLY_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -44,7 +44,7 @@ class Report implements API
     /**
      * 申请数据存证证明
      * 可通过该接口申请”e签宝数据存证证明“电子版下载地址，该存证证明由e签宝出具，暂不收取费用。
-     * 注意：接口为异步出证，出证成功后，会通过回调地址返回存证证明与证据包下载地址。（回调地址请提供appId并联系e签宝服务人员进行配置）
+     * 注意：接口为异步出证，出证成功后，会通过回调地址返回存证证明与证据包下载地址。（回调地址请提供appId并联系e签宝服务人员进行配置）.
      * @link https://open.esign.cn/doc/detail?id=opendoc%2Fevidence%2Ftgbgzq&namespace=opendoc%2Fevidence
      * @param string $eid 数据存证编号
      * @param string $number 证据持有者证件号
@@ -56,12 +56,12 @@ class Report implements API
         $params = [
             'eid' => $eid,
             'type' => $type,
-            'number' => $number
+            'number' => $number,
         ];
 
         $response = $this->adapter->post(self::ISSUE_REPORT_QUERY_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
