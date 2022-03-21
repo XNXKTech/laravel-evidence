@@ -42,7 +42,7 @@ class File implements API
 
         $response = $this->adapter->put($url, $params, $headers);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -61,10 +61,10 @@ class File implements API
             'docHash' => $docHash,
             'antTxHash' => $antTxHash,
         ];
-        
+
         $response = $this->adapter->post(self::CHECK_ANTFIN_NOTARY, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }

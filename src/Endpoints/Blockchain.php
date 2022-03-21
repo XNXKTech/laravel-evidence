@@ -10,7 +10,7 @@ use XNXK\LaravelEvidence\Traits\BodyAccessorTrait;
 class Blockchain implements API
 {
     use BodyAccessorTrait;
-    
+
     public const ANT_PUSH_INFO_API = '/v1/blockchain/antPushInfo';                      // 查询区块链上链信息
     public const APPLY_NOTARY_REPORT_API = '/v1/blockchain/applyNotaryReport';          // 申请区块链互联网公证处报告
 
@@ -31,12 +31,12 @@ class Blockchain implements API
     public function queryAntPushInfo(string $eid)
     {
         $params = [
-            'eid' => $eid
+            'eid' => $eid,
         ];
 
         $response = $this->adapter->post(self::ANT_PUSH_INFO_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -53,12 +53,12 @@ class Blockchain implements API
     {
         $params = [
             'eid' => $eid,
-            'userInfo' => $userInfo
+            'userInfo' => $userInfo,
         ];
 
         $response = $this->adapter->post(self::APPLY_NOTARY_REPORT_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }

@@ -40,12 +40,12 @@ class Scene implements API
         $params = [
             'sceneName' => $sceneName,
             'sceneTemplateId' => $sceneTemplateId,
-            'linkIds' => $linkIds
+            'linkIds' => $linkIds,
         ];
 
         $response = $this->adapter->post(self::VOUCHER_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -64,12 +64,12 @@ class Scene implements API
         $params = [
             'segmentTempletId' => $segmentTempletId,
             'segmentData' => $segmentData,
-            'content' => $content
+            'content' => $content,
         ];
 
         $response = $this->adapter->post(self::ORIGINAL_STANDARD_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -88,12 +88,12 @@ class Scene implements API
         $params = [
             'segmentTempletId' => $segmentTempletId,
             'segmentData' => $segmentData,
-            'content' => $content
+            'content' => $content,
         ];
 
         $response = $this->adapter->post(self::ORIGINAL_ADVANCED_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -112,12 +112,12 @@ class Scene implements API
         $params = [
             'segmentTempletId' => $segmentTempletId,
             'segmentData' => $segmentData,
-            'content' => $content
+            'content' => $content,
         ];
 
         $response = $this->adapter->post(self::ORIGINAL_DIGEST_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -134,12 +134,12 @@ class Scene implements API
     {
         $params = [
             'evid' => $evid,
-            'linkIds' => $linkIds
+            'linkIds' => $linkIds,
         ];
 
         $response = $this->adapter->post(self::VOUCHER_APPEND_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -156,12 +156,12 @@ class Scene implements API
     {
         $params = [
             'evid' => $evid,
-            'certificates' => $certificates
+            'certificates' => $certificates,
         ];
 
         $response = $this->adapter->post(self::RELATE_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
@@ -182,12 +182,12 @@ class Scene implements API
             'id' => $id,
             'timestamp' => $timestamp,
             'reverse' => $reverse,
-            'type' => $type
+            'type' => $type,
         ];
 
         $response = $this->adapter->post(self::CERTIFICATE_INFO_URL_API, $params);
 
-        $this->body = json_decode((string)$response->getBody());
+        $this->body = json_decode((string) $response->getBody());
 
         return $this->body;
     }
