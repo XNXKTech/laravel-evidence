@@ -2,26 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Endpoints;
+it('create business', function () {
+    $response = app(Tests\TestHelpers::class)
+        ->evidence()
+        ->temp()
+        ->createBusiness(
+            [
+                '房屋租赁行业',
+                '音乐行业',
+            ]
+        );
 
-use Tests\TestCase;
-use Tests\TestHelpers;
-
-class TempTest extends TestCase
-{
-    public function testCreateBusiness()
-    {
-        $response = app(TestHelpers::class)
-            ->evidence()
-            ->temp()
-            ->createBusiness(
-                [
-                    "房屋租赁行业",
-                    "音乐行业",
-                ]
-            );
-        
-        $this->assertEquals(0, $response->errCode);
-        $this->assertIsObject($response->result);
-    }
-}
+    expect($response->errCode)->toEqual(0);
+    expect($response->result)->toBeObject();
+});
