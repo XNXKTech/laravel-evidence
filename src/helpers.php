@@ -29,9 +29,8 @@ if (!function_exists('getSignature')) {
     function getSignature(
         string $message,
         string $projectSecret
-    ): bool|string
-    {
-        return hash_hmac('sha256', $message, $projectSecret, FALSE);
+    ): bool|string {
+        return hash_hmac('sha256', $message, $projectSecret, false);
     }
 }
 
