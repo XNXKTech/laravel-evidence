@@ -25,3 +25,5 @@ Homestead.json
 
 .DS_Store
 .idea
+
+.php-cs-fixer.cache
