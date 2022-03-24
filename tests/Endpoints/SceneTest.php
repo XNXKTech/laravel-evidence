@@ -16,7 +16,7 @@ it('create business', function () {
     expect($response->result)->toBeObject();
 
     foreach ($response->result as $key => $value) {
-        putenv('TEST_EVIDENCE_BUSINESS_UUID='.$key);
+        putenv('TEST_EVIDENCE_BUSINESS_UUID=' . $key);
     }
 });
 
@@ -27,7 +27,7 @@ it('create scene', function () {
         ->createScene(
             env('TEST_EVIDENCE_BUSINESS_UUID'),
             [
-                '上传音频与歌词的文件'
+                '上传音频与歌词的文件',
             ]
         );
 
@@ -35,7 +35,7 @@ it('create scene', function () {
     expect($response->result)->toBeObject();
 
     foreach ($response->result as $key => $value) {
-        putenv('TEST_EVIDENCE_SCENE_UUID='.$key);
+        putenv('TEST_EVIDENCE_SCENE_UUID=' . $key);
     }
 });
 
@@ -47,7 +47,7 @@ it('create seg by audio and lyric info', function () {
             env('TEST_EVIDENCE_SCENE_UUID'),
             [
                 '音频文件信息',
-                '歌词文件信息'
+                '歌词文件信息',
             ]
         );
 
@@ -58,7 +58,7 @@ it('create seg by audio and lyric info', function () {
     foreach ($response->result as $key => $value) {
         $uuids[] = $key;
     }
-    putenv('TEST_EVIDENCE_SEG_INFO_UUID='.json_encode($uuids));
+    putenv('TEST_EVIDENCE_SEG_INFO_UUID=' . json_encode($uuids));
 });
 
 it('create seg by audio info field', function () {
@@ -91,7 +91,7 @@ it('create seg by audio info field', function () {
                 [
                     'displayName' => 'SHA-512',
                     'paramName' => 'sha512',
-                ]
+                ],
             ]
         );
 
@@ -129,7 +129,7 @@ it('create seg by lyric info field', function () {
                 [
                     'displayName' => 'SHA-512',
                     'paramName' => 'sha512',
-                ]
+                ],
             ]
         );
 
@@ -149,7 +149,7 @@ it('create voucher', function () {
     expect($response->errCode)->toEqual(0);
     expect($response->evid)->toBeString();
 
-    putenv('TEST_EVIDENCE_EVID='.$response->evid);
+    putenv('TEST_EVIDENCE_EVID=' . $response->evid);
 });
 
 it('create segment original by standard in audio', function () {
@@ -165,12 +165,12 @@ it('create segment original by standard in audio', function () {
                 'fileUrl' => 'https://www.music.com/file/demo.mp3',
                 'sha1' => hash_file('sha1', $filePath),
                 'sha256' => hash_file('sha256', $filePath),
-                'sha512' => hash_file('sha512', $filePath)
+                'sha512' => hash_file('sha512', $filePath),
             ]),
             [
                 'contentDescription' => basename($filePath),
                 'contentLength' => filesize($filePath),
-                'contentBase64Md5' => getContentBase64Md5($filePath)
+                'contentBase64Md5' => getContentBase64Md5($filePath),
             ]
         );
 
@@ -178,8 +178,8 @@ it('create segment original by standard in audio', function () {
     expect($response->evid)->toBeString();
     expect($response->url)->toBeString();
 
-    putenv('TEST_EVIDENCE_AUDIO_EVID='.$response->evid);
-    putenv('TEST_EVIDENCE_UPLOAD_AUDIO_URL='.$response->url);
+    putenv('TEST_EVIDENCE_AUDIO_EVID=' . $response->evid);
+    putenv('TEST_EVIDENCE_UPLOAD_AUDIO_URL=' . $response->url);
 });
 
 it('create segment original by standard in lyric', function () {
@@ -195,20 +195,20 @@ it('create segment original by standard in lyric', function () {
                 'fileUrl' => 'https://www.music.com/file/demo.txt',
                 'sha1' => hash_file('sha1', $filePath),
                 'sha256' => hash_file('sha256', $filePath),
-                'sha512' => hash_file('sha512', $filePath)
+                'sha512' => hash_file('sha512', $filePath),
             ]),
             [
                 'contentDescription' => basename($filePath),
                 'contentLength' => filesize($filePath),
-                'contentBase64Md5' => getContentBase64Md5($filePath)
+                'contentBase64Md5' => getContentBase64Md5($filePath),
             ]
         );
 
     expect($response->errCode)->toEqual(0);
     expect($response->evid)->toBeString();
 
-    putenv('TEST_EVIDENCE_LYRIC_EVID='.$response->evid);
-    putenv('TEST_EVIDENCE_UPLOAD_LYRIC_URL='.$response->url);
+    putenv('TEST_EVIDENCE_LYRIC_EVID=' . $response->evid);
+    putenv('TEST_EVIDENCE_UPLOAD_LYRIC_URL=' . $response->url);
 });
 
 it('upload audio file', function () {
@@ -248,12 +248,12 @@ it('create append audio and lyric', function () {
             [
                 [
                     'type' => '0',
-                    'value' => env('TEST_EVIDENCE_AUDIO_EVID')
+                    'value' => env('TEST_EVIDENCE_AUDIO_EVID'),
                 ],
                 [
                     'type' => '0',
-                    'value' => env('TEST_EVIDENCE_LYRIC_EVID')
-                ]
+                    'value' => env('TEST_EVIDENCE_LYRIC_EVID'),
+                ],
             ]
         );
 
@@ -270,8 +270,8 @@ it('create relate', function () {
                 [
                     'type' => 'ID_CARD',
                     'number' => '440301197110292910',
-                    'name' => '马化腾'
-                ]
+                    'name' => '马化腾',
+                ],
             ]
         );
 

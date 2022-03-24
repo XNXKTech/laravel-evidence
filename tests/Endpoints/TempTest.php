@@ -17,7 +17,7 @@ it('create business', function () {
     expect($response->result)->toBeObject();
 
     foreach ($response->result as $key => $value) {
-        putenv('TEST_EVIDENCE_TEMP_UUID='.$key);
+        putenv('TEST_EVIDENCE_TEMP_UUID=' . $key);
     }
 });
 
@@ -28,7 +28,7 @@ it('create scene', function () {
         ->createScene(
             env('TEST_EVIDENCE_TEMP_UUID'),
             [
-                '音乐行业'
+                '音乐行业',
             ]
         );
 
