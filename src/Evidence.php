@@ -8,6 +8,7 @@ use Illuminate\Support\Traits\Macroable;
 use XNXK\LaravelEvidence\Adapter\Guzzle as Adapter;
 use XNXK\LaravelEvidence\Auth\Token;
 use XNXK\LaravelEvidence\Endpoints\Blockchain;
+use XNXK\LaravelEvidence\Endpoints\File;
 use XNXK\LaravelEvidence\Endpoints\Report;
 use XNXK\LaravelEvidence\Endpoints\Scene;
 use XNXK\LaravelEvidence\Endpoints\Temp;
