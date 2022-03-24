@@ -114,7 +114,7 @@ class Scene implements API
             'segmentData' => $segmentData,
             'content' => $content,
         ];
-        
+
         $response = $this->adapter->post(self::ORIGINAL_DIGEST_API, $params);
 
         $this->body = json_decode((string) $response->getBody());
@@ -184,7 +184,7 @@ class Scene implements API
             'timestamp' => $timestamp,
             'reverse' => $reverse,
             'type' => $type,
-            'number' => $number
+            'number' => $number,
         ];
 
         $response = $this->adapter->post(self::CERTIFICATE_INFO_URL_API, $params);
