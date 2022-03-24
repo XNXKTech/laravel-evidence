@@ -24,10 +24,12 @@ class Token implements Auth
             'X-timevale-signature-algorithm' => 'HmacSHA256',
             'X-timevale-mode' => 'package',
         ];
-        $signatureHeaders['X-timevale-signature'] = getSignature(
-            json_encode($data),
-            $this->secret
-        );
+        if (!array_key_exists('body', $data)) {
+            $signatureHeaders['X-timevale-signature'] = getSignature(
+                json_encode($data),
+                $this->secret
+            );
+        }
 
         return array_merge($signatureHeaders, $headers);
     }
