@@ -23,9 +23,9 @@ class Evidence
 
     public function __construct(?string $app_id = null, ?string $secret = null, ?string $evidence_server = null, ?string $esign_server = null)
     {
-        $token = $app_id && $secret ? new Token($app_id, $secret) : new Token(env('EVIDENCE_APPID'), env('EVIDENCE_SECRET'));
-        $this->evidence_adapter = new Adapter($token, $evidence_server ?: env('EVIDENCE_SERVER'));
-        $this->esign_adapter = new Adapter($token, $esign_server ?: env('ESIGN_SERVER'));
+        $token = $app_id && $secret ? new Token($app_id, $secret) : new Token(getenv('EVIDENCE_APPID'), getenv('EVIDENCE_SECRET'));
+        $this->evidence_adapter = new Adapter($token, $evidence_server ?: getenv('EVIDENCE_SERVER'));
+        $this->esign_adapter = new Adapter($token, $esign_server ?: getenv('ESIGN_SERVER'));
     }
 
     public function temp(): Temp
