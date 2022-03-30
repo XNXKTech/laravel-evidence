@@ -28,6 +28,32 @@ class Evidence
         $this->esign_adapter = new Adapter($token, $esign_server ?: getenv('ESIGN_SERVER'));
     }
 
+    public function getSignature(
+        string $message,
+        string $projectSecret
+    ): bool|string {
+        return hash_hmac('sha256', $message, $projectSecret, false);
+    }
+
+    public function getContentMd5($bodyData): string
+    {
+        return base64_encode(md5($bodyData, true));
+    }
+
+    public function getMillisecond(): float
+    {
+        [$t1, $t2] = explode(' ', microtime());
+
+        return (float) sprintf('%.0f', (floatval($t1) + floatval($t2)) * 1000);
+    }
+
+    public function getContentBase64Md5(string $filePath): string
+    {
+        $md5file = md5_file($filePath, true);
+
+        return base64_encode($md5file);
+    }
+
     public function temp(): Temp
     {
         return new Temp($this->evidence_adapter);
