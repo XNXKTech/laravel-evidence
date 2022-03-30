@@ -170,7 +170,7 @@ it('create segment original by standard in audio', function () {
             [
                 'contentDescription' => basename($filePath),
                 'contentLength' => filesize($filePath),
-                'contentBase64Md5' => getContentBase64Md5($filePath),
+                'contentBase64Md5' => evidence()->getContentBase64Md5($filePath),
             ]
         );
 
@@ -200,7 +200,7 @@ it('create segment original by standard in lyric', function () {
             [
                 'contentDescription' => basename($filePath),
                 'contentLength' => filesize($filePath),
-                'contentBase64Md5' => getContentBase64Md5($filePath),
+                'contentBase64Md5' => evidence()->getContentBase64Md5($filePath),
             ]
         );
 
@@ -219,7 +219,7 @@ it('upload audio file', function () {
         ->upload(
             env('TEST_EVIDENCE_UPLOAD_AUDIO_URL'),
             $filePath,
-            getContentBase64Md5($filePath)
+            evidence()->getContentBase64Md5($filePath)
         );
 
     expect($response->errCode)->toEqual(0);
@@ -233,7 +233,7 @@ it('upload lyric file', function () {
         ->upload(
             env('TEST_EVIDENCE_UPLOAD_LYRIC_URL'),
             $filePath,
-            getContentBase64Md5($filePath)
+            evidence()->getContentBase64Md5($filePath)
         );
 
     expect($response->errCode)->toEqual(0);
@@ -284,7 +284,7 @@ it('query certificate info url', function () {
         ->scene()
         ->queryCertificateInfoUrl(
             env('TEST_EVIDENCE_EVID'),
-            (int) getMillisecond(),
+            (int) evidence()->getMillisecond(),
             false,
             'ID_CARD',
             '440301197110292910'
