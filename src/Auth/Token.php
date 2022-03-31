@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace XNXK\LaravelEvidence\Auth;
 
+use XNXK\LaravelEvidence\Evidence;
+
 class Token implements Auth
 {
     private string $appid;
     private string $secret;
+    private Evidence $evidence;
 
     public function __construct(string $appid, string $secret)
     {
@@ -30,6 +33,35 @@ class Token implements Auth
                 $this->secret
             );
         }
+
+        return array_merge($signatureHeaders, $headers);
+    }
+
+    public function getHeadersByStandards(string $method, string $uri, array $data, array $headers): array
+    {
+        if (count($data)) {
+            $contentMD5 = $headers && $headers['Content-MD5'] ? $headers['Content-MD5'] : evidence()->getContentMd5(json_encode($data));
+        } else {
+            $contentMD5 = '';
+        }
+        $signatureHeaders = [
+            'Accept' => '*/*',
+            'Content-MD5' => $contentMD5,
+            'Content-Type' => 'application/json; charset=UTF-8',
+            'X-Tsign-Open-App-Id' => $this->appid,
+            'X-Tsign-Open-Ca-Timestamp' =>  evidence()->getMillisecond(),
+            'X-Tsign-Open-Auth-Mode' => 'Signature',
+        ];
+        $signatureHeaders['X-Tsign-Open-Ca-Signature'] = evidence()->getSignatureByStandards(
+            strtoupper($method),
+            $signatureHeaders['Accept'],
+            $signatureHeaders['Content-Type'],
+            $signatureHeaders['Content-MD5'],
+            '',
+            evidence()->getHeadersToString($headers),
+            $uri,
+            $this->secret
+        );
 
         return array_merge($signatureHeaders, $headers);
     }
