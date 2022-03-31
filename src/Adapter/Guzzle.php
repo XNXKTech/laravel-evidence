@@ -29,7 +29,7 @@ class Guzzle implements Adapter
         }
 
         $this->auth = $auth;
-        
+
         $this->service = $service;
 
         $this->client = new Client([

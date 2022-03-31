@@ -35,7 +35,7 @@ class Evidence
         return hash_hmac('sha256', $message, $projectSecret, false);
     }
 
-    function getSignatureByStandards(
+    public function getSignatureByStandards(
         string $httpMethod,
         string $accept,
         string $contentType,
@@ -56,7 +56,7 @@ class Evidence
         return base64_encode($signature);
     }
 
-    function getHeadersToString(array $headers): string
+    public function getHeadersToString(array $headers): string
     {
         if (empty($headers)) {
             return '';

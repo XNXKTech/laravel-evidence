@@ -303,7 +303,7 @@ it('create report', function () {
             '440301197110292910',
             'ID_CARD',
         );
-    
+
     expect($response->code)->toEqual(0);
     expect($response->data->reportId)->toBeString();
 
