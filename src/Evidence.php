@@ -24,8 +24,8 @@ class Evidence
     public function __construct(?string $app_id = null, ?string $secret = null, ?string $evidence_server = null, ?string $esign_server = null)
     {
         $token = $app_id && $secret ? new Token($app_id, $secret) : new Token(getenv('EVIDENCE_APPID'), getenv('EVIDENCE_SECRET'));
-        $this->evidence_adapter = new Adapter($token, $evidence_server ?: getenv('EVIDENCE_SERVER'));
-        $this->esign_adapter = new Adapter($token, $esign_server ?: getenv('ESIGN_SERVER'));
+        $this->evidence_adapter = new Adapter($token, $evidence_server ?: getenv('EVIDENCE_SERVER'), 'evidence');
+        $this->esign_adapter = new Adapter($token, $esign_server ?: getenv('ESIGN_SERVER'), 'esign');
     }
 
     public function getSignature(
@@ -33,6 +33,36 @@ class Evidence
         string $projectSecret
     ): bool|string {
         return hash_hmac('sha256', $message, $projectSecret, false);
+    }
+
+    function getSignatureByStandards(
+        string $httpMethod,
+        string $accept,
+        string $contentType,
+        string $contentMd5,
+        string $date,
+        string $headers,
+        string $url,
+        string $secret
+    ): string {
+        $stringToSign = $httpMethod . "\n" . $accept . "\n" . $contentMd5 . "\n" . $contentType . "\n" . $date . "\n" . $headers;
+        if ($headers !== '') {
+            $stringToSign .= "\n" . $url;
+        } else {
+            $stringToSign .= $url;
+        }
+        $signature = hash_hmac('sha256', utf8_encode($stringToSign), utf8_encode($secret), true);
+
+        return base64_encode($signature);
+    }
+
+    function getHeadersToString(array $headers): string
+    {
+        if (empty($headers)) {
+            return '';
+        }
+
+        return str_replace('&', "\n", http_build_query($headers));
     }
 
     public function getContentMd5($bodyData): string

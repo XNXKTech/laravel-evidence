@@ -293,3 +293,31 @@ it('query certificate info url', function () {
     expect($response->errCode)->toEqual(0);
     expect($response->url)->toBeString();
 });
+
+it('create report', function () {
+    $response = app(Tests\TestHelpers::class)
+        ->evidence()
+        ->report()
+        ->create(
+            env('TEST_EVIDENCE_EVID'),
+            '440301197110292910',
+            'ID_CARD',
+        );
+    
+    expect($response->code)->toEqual(0);
+    expect($response->data->reportId)->toBeString();
+
+    putenv('TEST_EVIDENCE_REPORT_ID=' . $response->data->reportId);
+});
+
+it('query report', function () {
+    sleep(10);
+    $response = app(Tests\TestHelpers::class)
+        ->evidence()
+        ->report()
+        ->query(
+            env('TEST_EVIDENCE_REPORT_ID')
+        );
+
+    expect($response->code)->toEqual(0);
+});

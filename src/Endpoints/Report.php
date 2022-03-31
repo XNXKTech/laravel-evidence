@@ -34,7 +34,7 @@ class Report implements API
             'reportId' => $reportId,
         ];
 
-        $response = $this->adapter->post(self::ISSUE_REPORT_APPLY_API, $params);
+        $response = $this->adapter->post(self::ISSUE_REPORT_QUERY_API, $params);
 
         $this->body = json_decode((string) $response->getBody());
 
@@ -59,7 +59,7 @@ class Report implements API
             'number' => $number,
         ];
 
-        $response = $this->adapter->post(self::ISSUE_REPORT_QUERY_API, $params);
+        $response = $this->adapter->post(self::ISSUE_REPORT_APPLY_API, $params);
 
         $this->body = json_decode((string) $response->getBody());
 

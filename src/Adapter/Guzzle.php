@@ -13,17 +13,24 @@ class Guzzle implements Adapter
 {
     private Client $client;
     private Auth $auth;
+    private string $service;
 
     /**
      * @inheritDoc
      */
-    public function __construct(Auth $auth, ?string $baseURI = null)
+    public function __construct(Auth $auth, ?string $baseURI = null, ?string $service = null)
     {
         if ($baseURI === null) {
             $baseURI = 'https://smlcunzheng.tsign.cn:9443';
         }
 
+        if ($service === null) {
+            $service = 'evidence';
+        }
+
         $this->auth = $auth;
+        
+        $this->service = $service;
 
         $this->client = new Client([
             'base_uri' => $baseURI,
@@ -80,7 +87,7 @@ class Guzzle implements Adapter
         }
 
         try {
-            $headers = $this->auth->getHeaders($method, $uri, $data, $headers);
+            $headers = $this->service === 'evidence' ? $this->auth->getHeaders($method, $uri, $data, $headers) : $this->auth->getHeadersByStandards($method, $uri, $data, $headers);
             if (array_key_exists('body', $data)) {
                 $response = $this->client->$method($uri, [
                     'headers' => $headers,

@@ -15,7 +15,7 @@ interface Adapter
     /**
      * Adapter constructor.
      */
-    public function __construct(Auth $auth, string $baseURI);
+    public function __construct(Auth $auth, string $baseURI, ?string $service);
 
     /**
      * Sends a GET request.
