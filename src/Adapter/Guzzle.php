@@ -24,6 +24,10 @@ class Guzzle implements Adapter
             $baseURI = 'https://smlcunzheng.tsign.cn:9443';
         }
 
+        if ($service === null) {
+            $service = 'evidence';
+        }
+
         $this->auth = $auth;
         
         $this->service = $service;

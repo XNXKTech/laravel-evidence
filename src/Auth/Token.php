@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace XNXK\LaravelEvidence\Auth;
 
-use XNXK\LaravelEvidence\Evidence;
-
 class Token implements Auth
 {
     private string $appid;
     private string $secret;
-    private Evidence $evidence;
 
     public function __construct(string $appid, string $secret)
     {
