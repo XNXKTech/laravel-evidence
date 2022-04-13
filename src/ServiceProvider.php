@@ -18,7 +18,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $config = config('evidence');
 
         $this->app->bind(Evidence::class, static function () use ($config) {
-            return new Evidence($config);
+            return new Evidence($config['app_id'] ?? null, $config['secret'] ?? null, $config['evidence_server'] ?? null, $config['esign_server'] ?? null);
         });
 
         $this->app->alias(Evidence::class, 'evidence');
