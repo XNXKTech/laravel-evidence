@@ -18,7 +18,7 @@
     "illuminate/support": "^9.3",
     "mockery/mockery": "1.5.0",
     "nunomaduro/phpinsights": "2.4.0",
-    "orchestra/testbench": "7.2.0",
+    "orchestra/testbench": "7.6.1",
     "pestphp/pest": "1.21.3",
     "pestphp/pest-plugin-parallel": "1.2.0",
     "phpunit/phpunit": "9.5.21"
