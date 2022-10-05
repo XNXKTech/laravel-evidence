@@ -21,7 +21,7 @@
     "orchestra/testbench": "7.9.0",
     "pestphp/pest": "1.22.1",
     "pestphp/pest-plugin-parallel": "1.2.0",
-    "phpunit/phpunit": "9.5.24"
+    "phpunit/phpunit": "9.5.25"
   },
   "license": "Apache-2.0",
   "authors": [
