@@ -20,7 +20,7 @@
     "nunomaduro/phpinsights": "2.6.1",
     "orchestra/testbench": "7.15.0",
     "pestphp/pest": "1.22.1",
-    "pestphp/pest-plugin-parallel": "1.2.0",
+    "pestphp/pest-plugin-parallel": "1.2.1",
     "phpunit/phpunit": "9.5.25"
   },
   "license": "Apache-2.0",
