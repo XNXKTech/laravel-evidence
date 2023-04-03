@@ -19,7 +19,7 @@
     "mockery/mockery": "1.5.1",
     "nunomaduro/phpinsights": "2.6.1",
     "orchestra/testbench": "7.15.0",
-    "pestphp/pest": "1.22.1",
+    "pestphp/pest": "1.22.6",
     "pestphp/pest-plugin-parallel": "1.2.0",
     "phpunit/phpunit": "9.5.25"
   },
